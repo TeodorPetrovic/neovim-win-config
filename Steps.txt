@@ -1,0 +1,9 @@
+npm -g install tree-sitter-cli
+
+# For installing FZF for telescope and need Cmake
+winget install fzf
+winget install ajeetdsouza.zoxide
+
+# TODO
+SPACE + ca To recomend code actions
+SPACE + rn TO rename multiple options in my code
