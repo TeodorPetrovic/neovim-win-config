@@ -19,11 +19,26 @@ keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) 
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 -- Terminal
-keymap.set("n", "<leader>tt", ":tabnew | terminal<CR>A", { desc = "Run terminal in new tab" }) --  move current buffer to new tab
-keymap.set("n", "<leader>tv", ":vsplit | terminal<CR>A", { desc = "Run terminal in vertical split" }) --  move current buffer to new tab
-keymap.set("n", "<leader>ts", ":split | terminal<CR>A", { desc = "Run terminal in horizontal split" }) --  move current buffer to new tab
+local pwsh = "pwsh" -- Use "pwsh" if it's in your PATH
+keymap.set(
+	"n",
+	"<leader>tt",
+	":tabnew | terminal " .. pwsh .. "<CR>:startinsert<CR>",
+	{ desc = "Run PowerShell 7 in new tab" }
+)
+keymap.set(
+	"n",
+	"<leader>tv",
+	":vsplit | terminal " .. pwsh .. "<CR>:startinsert<CR>",
+	{ desc = "Run PowerShell 7 in vertical split" }
+)
+keymap.set(
+	"n",
+	"<leader>ts",
+	":split | terminal " .. pwsh .. "<CR>:startinsert<CR>",
+	{ desc = "Run PowerShell 7 in horizontal split" }
+)
 keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Escape terminal mode" })
-
 -- Rest
 keymap.set("n", "<leader>rr", "<cmd>lua require('rest-nvim').run()<CR>", { noremap = true, silent = true })
 keymap.set("n", "<leader>rp", "<cmd>lua require('rest-nvim').run(true)<CR>", { noremap = true, silent = true })
